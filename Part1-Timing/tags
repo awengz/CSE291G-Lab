@@ -1,0 +1,25 @@
+.PHONY	Makefile	/^.PHONY: clean$/
+L1_SIZE	main.c	11
+L2_SIZE	main.c	12
+L3_SIZE	main.c	13
+LINE_SIZE	main.c	9
+MMakefile	Makefile	/^main: main.c Makefile$/
+Mmain	main.c	/^int main (int ac, char **av) {$/
+PRINT_FUNC	main.c	4
+PRINT_FUNC	main.c	6
+SAMPLES	utility.h	12
+__UTILITY_H__	utility.h	10
+all	Makefile	/^all: main main-visual$/
+clean	Makefile	/^clean:$/
+clflush	utility.h	/^static inline void clflush(void *v) {$/
+compare	utility.h	/^int compare(const void *p1, const void *p2) {$/
+lfence	utility.h	/^static inline void lfence() {$/
+main-visual	Makefile	/^main-visual: main.c Makefile$/
+measure_one_block_access_time	utility.h	/^static inline uint64_t measure_one_block_access_ti/
+one_block_access	utility.h	/^static inline uint64_t one_block_access(uint64_t a/
+print_results_for_visualization	utility.h	/^void print_results_for_visualization(uint64_t* dra/
+print_results_plaintext	utility.h	/^void print_results_plaintext(uint64_t* dram, uint6/
+rdtscpp	utility.h	/^static inline uint32_t rdtscpp() {$/
+rdtscpp64	utility.h	/^static inline uint64_t rdtscpp64() {$/
+run	Makefile	/^run: main$/
+run-visual	Makefile	/^run-visual: main-visual$/
