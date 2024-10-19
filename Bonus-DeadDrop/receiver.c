@@ -65,6 +65,7 @@ int main(int argc, char **argv)
 	    // [Bonus] TODO: Put your covert channel code here
 
 	    for (int j = 0; j<256; j++) {
+			probe_time[j]=0;
 		    for (int k=0; k<4; k++){ 
 			    tmp = eviction_buffer[j*64 + k*65536];
 		    }
@@ -75,7 +76,7 @@ int main(int argc, char **argv)
 	    }
 	    // step 2: probe
 	    //int i=0;
-	    for (int i=0; i<800; i++){ //100 samples 
+	    for (int i=0; i<1800; i++){ //100 samples 
 		    for (int j=0; j<256; j++){ // Probe set-wise
 			    cur_time = 0;
 			    for (int k=0; k<4; k++){ // iterate over 4 ways
@@ -86,13 +87,14 @@ int main(int argc, char **argv)
 		    }
 	    }	    
 
-	    //for(int j=0; j<256; j++){
-	    //	if(probe_time[j] > 40*500){
-	    //    	listening = false;
-	    //    	printf("set j :");
-	    //    }
-	    //}
-	    listening = false;
+	    for(int j=0; j<256; j++){
+	    	if(probe_time[j] > 45*1800){
+	        	listening = false;
+	        	printf("message : %d", j);
+			break;
+	        }
+	    }
+	    //listening = false;
 	    //listening = false;
 	//for(int j = 0; j<256; j++){
 		//avg = (probe_time[j][0] + probe_time[j][1] + probe_time[j][2] + probe_time[j][3])/4;
@@ -107,11 +109,11 @@ int main(int argc, char **argv)
 	//listening = false;
     }
 
-    for(int j=0;j<800;j++){
+    for(int j=0;j<1800;j++){
 //    	printf("set 0 sample %d is eqial to %d\n", j, probetimeset0[j]);
     }
     for(int j = 0; j<256; j++){
-	    avg = probe_time[j]/800;
+	    avg = probe_time[j]/1800;
             printf("FOr set %d: avg probe time is equal to %d \n", j, avg);
     }
     printf("Receiver finished.\n");
