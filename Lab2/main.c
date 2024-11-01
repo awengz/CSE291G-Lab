@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     for (int i =0; i<100; i++){
 	   
 	    
-	    if (stats[i] < 150)
+	    if (stats[i] < 110)
 	    {
 	    	printf ("Secret data is %d!\n", i);
 	    }
